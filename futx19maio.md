@@ -79,6 +79,8 @@ conta.then(console.log)
 
 O grande ganho é de legibilidade. Cada passagem está enganchada numa variável externa que pode ser usada para bifurcar execuções.
 
+* * *
+
 Observe o exemplo do uso de cache API pela [mdn](https://developer.mozilla.org/en-US/docs/Web/API/Cache):
 ```javascript
 var CACHE_VERSION = 1;
