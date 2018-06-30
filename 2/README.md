@@ -19,7 +19,7 @@ livro. Sinalizou sobre criação de glosas/vocabulários para literatura surda.
 Isto me faz pensar sobre um *Elan As A Service*, com um esquema de
 compartilhamento como do github.
 
-## Ensino de programação como ferramenta de apoio pedagógico ao letramento de crianças surdas
+## Ensino de programação como ferramenta de apoio pedagógico ao letramento de crianças surdas.
 O meu banner é [este](ensinoDeProgramacaoComoFerramentaDeApoioPedagogicoAoLetramentoDeCriancasSurdas.pdf).
 São universos separados. O pessoal da programação não sabem nada de pedagogia,
 não imaginam usar técnicas de ensino de uma segunda língua para algorítmicos. Os
@@ -60,7 +60,7 @@ gerenciar. Ao invés de lidar com um acumulado de setinhas, damos um nome e a
 tomamos como representantes.
 
 O objetivo é a criança começar a manusear o texto brincando, claro que isto
-não é língua português, mas todo o raciocínio sintático pode ser germinado.
+não é língua portuguesa, mas todo o raciocínio sintático pode ser germinado.
 Você está escrevendo e lendo, colocando a mensagem num recipiente que outra
 pessoa, talvez desconhecida, em outro lugar e em outro tempo, pode recuperar.
 Você está usando a escrita pra chegar a representar ideias que seriam
