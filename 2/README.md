@@ -19,10 +19,12 @@ livro. Sinalizou sobre criação de glosas/vocabulários para literatura surda.
 Isto me faz pensar sobre um *Elan As A Service*, com um esquema de
 compartilhamento como do github.
 
-O meu banner é este [daqui](ensinoDeProgramacaoComoFerramentaDeApoioPedagogicoAoLetramentoDeCriancasSurdas.pdf).
-São mundos que estão de costas, os ralos contatos acontecem por IHC ainda num
-carater assistencialista. O ensino de programação tem muito a aprender com a
-licenciatura e o ensino de segunda língua.
+## Ensino de programação como ferramenta de apoio pedagógico ao letramento de crianças surdas
+O meu banner é [este](ensinoDeProgramacaoComoFerramentaDeApoioPedagogicoAoLetramentoDeCriancasSurdas.pdf).
+São universos separados. O pessoal da programação não sabem nada de pedagogia,
+não imaginam usar técnicas de ensino de uma segunda língua para algorítmicos. Os
+surdo não sabem que o ensino de programação tem o mesmo problema de compreender
+uma comunicação não é acessível naturalmente.
 
 No piso dá pra ver umas fitas que preguei, eram pra marcar um mapa 3x3
 quadriculado. O meu texto eram setinhas que movimentavam os participantes para
