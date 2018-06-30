@@ -8,7 +8,7 @@ feito um boneco de posto e eles pensaram "tadinho, deve ter problemas".
 Foi bacana. Na foto: Elias Paulino, Regina Campelo, Elidéa Bernardino,
 Magno Prates, Adriano Gianotto, Rachel Sutton Spence, eu :D
 
-Elidéia chama o espaço sub-rogado de "Ação Construída", mostrou um exeplo
+Elidéia chama o espaço sub-rogado de "Ação Construída", mostrou um exemplo
 acontecendo espontaneamente com ouvintes num programa tipo Jô Soares.
 
 O poema "[A bolinha de ping-pong](https://www.youtube.com/watch?v=VhGCEznqljo)"
@@ -17,7 +17,7 @@ apareceu em várias apresentações.
 Rachel escreveu [este](https://www.amazon.com/Introducing-Sign-Language-Literature-Creativity/dp/1137363819)
 livro. Sinalizou sobre criação de glosas/vocabulários para literatura surda.
 Isto me faz pensar sobre um *Elan As A Service*, com um esquema de
-compartilhamento igual o github.
+compartilhamento como do github.
 
 O meu banner é este [daqui](ensinoDeProgramacaoComoFerramentaDeApoioPedagogicoAoLetramentoDeCriancasSurdas.pdf).
 São mundos que estão de costas, os ralos contatos acontecem por IHC ainda num
@@ -40,6 +40,8 @@ na mesa de cirurgia, dá pra pensar com calma, talvez eu tenha infringido
 alguma regra, como sair do mapa, ou talvez eu queira fazer um movimento, como a
 diagonal, que precise ser representada decompondo em catetos.
 
+![setas](setas.jpg)
+
 Uma das brincadeiras consistia em manusear subtrechos e os combinar. Uma rota,
 que passa pelo ponto A, era dividida em A1 e A2, assim também com B. Desta
 forma:
@@ -56,12 +58,12 @@ gerenciar. Ao invés de lidar com um acumulado de setinhas, damos um nome e a
 tomamos como representantes.
 
 O objetivo é a criança começar a manusear o texto brincando, claro que isto
-não é língua portugues, mas todo o raciocínio sintático pode ser germinado.
+não é língua português, mas todo o raciocínio sintático pode ser germinado.
 Você está escrevendo e lendo, colocando a mensagem num recipiente que outra
 pessoa, talvez desconhecida, em outro lugar e em outro tempo, pode recuperar.
-Você está usando a escrita pra chegar a represetar ideias que seriam complicadas
-demais sem ela. Além disso, o lúdico pode incentivar a experimentação e a
-curiosidade, o texto não é mais uma barreira, torna-se uma brincadeira a ser
-descorberta.
+Você está usando a escrita pra chegar a representar ideias que seriam
+complicadas demais sem ela. Além disso, o lúdico pode incentivar a
+experimentação e a curiosidade, os livros não são mais muros, tornam-se uma
+brincadeira a ser descoberta.
 
 Regina indicou que a faixa etária mais apropriada seria de 0 a 5 anos.
