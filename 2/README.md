@@ -21,7 +21,7 @@ compartilhamento como do github.
 
 ## Ensino de programação como ferramenta de apoio pedagógico ao letramento de crianças surdas.
 O meu banner é [este](ensinoDeProgramacaoComoFerramentaDeApoioPedagogicoAoLetramentoDeCriancasSurdas.pdf).
-São universos separados. O pessoal da programação não sabem nada de pedagogia,
+São universos separados. O pessoal da programação não sabe nada de pedagogia,
 não imaginam usar técnicas de ensino de uma segunda língua para algorítmicos. Os
 surdo não sabem que o ensino de programação tem o mesmo problema de compreender
 uma comunicação não é acessível naturalmente.
