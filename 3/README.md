@@ -81,6 +81,8 @@ bottle().bipMeAt()
 ```
 Porque ele executa várias vezes a mesma função `bipMeAt`. São a mesma mensagem na garrafa porque não acabou a fila de tarefas pra começar a fila de [promessas](https://abc.danch.me/microtasks-macrotasks-more-on-the-event-loop-881557d7af6f), que é quando o naufrago escreve novas mensagens. Você executou o `resolve` da promessa mas ela não chaveia imediatamente.
 
+Se você executar cada linha no console vai perceber que dá tempo pro náufrago colocar outra `bipMeAt`, mas certamente você não consegue repetir isso 6 vezes em menos de 50ms.
+
 Há várias maneiras de contornar isso. Uma delas é colocar cada `bottle().bipMeAt` depois de `setTimeout`
 ```javascript
 setTimeout(() => {
