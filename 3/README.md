@@ -58,7 +58,7 @@ bottle().bipMeAt("alô")
 ```
 
 ## Aperte F12
-<script src="naugrafo.js" defer></script>
+<script src="naufrago.js" defer></script>
 
 
 
