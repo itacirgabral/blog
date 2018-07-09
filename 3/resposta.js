@@ -1,4 +1,3 @@
-
 function bottleResponse() {
   const lastBottle = bottle()
   if (lastBottle.faltam) {
