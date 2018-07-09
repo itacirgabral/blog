@@ -3,7 +3,7 @@
 
 Há um náufrago assíncrono neste oceano, ele só consegue ler e escrever mensagens através de uma garrafa. Ele não quer ser salvo, mas fica poluindo o mar com garrafas plásticas não biodegradáveis. 
 
-Para fazê-lo parar é necessário responder 5 garrafas todas em menos de 50 milissegundos, assim ele acha que estão chegando perto.
+Para o fazer parar é necessário responder 5 garrafas todas em menos de 50 milissegundos, assim ele acha que estão chegando perto.
 
 ## Garrafa
 ```javascript
@@ -64,3 +64,7 @@ bottle().bipMeAt("alô")
 ## Aperte F12
 
 <script src="naufrago.js" defer></script>
+
+Há uma variável globa `bottle` que é uma função, quando você executa sem argumentos ela retorna o que tem dentro da garrafa, com argumento salva dentro da garrafa.
+
+O náufrago vai colocar na garrafa um objeto que possui um atributo `bipMeAt`, que ao executar faz com que ele escreva uma nova mensagem na garrafa. Esta função é o resolve de uma promessa, para ficar mais fácil existe a `stripromise` que vira uma nova Promise do avesso, você recebe um objeto contendo a promessa e suas funções de disparo destacadas.
