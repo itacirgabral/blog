@@ -47,7 +47,7 @@ const stripromise = function stripromise () {
         
         if (faltam === 0) {
             bottle({
-                message: "Conseguiu!"
+                message: "Eita!! Vai embora que não to mais aqui ¬¬"
             })
         } else {
             bottle({
@@ -68,4 +68,4 @@ const stripromise = function stripromise () {
     }        
 })()
 
-console.log("olhe na bottle")
+console.log("resposta.js")
