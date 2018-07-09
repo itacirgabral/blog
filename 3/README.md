@@ -1,5 +1,9 @@
-# Desafio
+# Náufrago
 ![bottle](bottle.png)
+
+Há um náufrago assíncrono neste oceano, ele só consegue ler e escrever mensagens através de uma garrafa. Ele não quer ser salvo, mas fica poluindo o mar com garrafas plásticas não biodegradáveis. 
+
+Para fazê-lo parar é necessário responder 5 garrafas todas em menos de 50 milissegundos, assim ele acha que estão chegando perto.
 
 ## Garrafa
 ```javascript
@@ -58,16 +62,5 @@ bottle().bipMeAt("alô")
 ```
 
 ## Aperte F12
+
 <script src="naufrago.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
