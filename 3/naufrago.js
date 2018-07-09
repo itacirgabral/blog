@@ -5,6 +5,7 @@ const bottle = (pivo => function bottle (a) {
         return pivo
     }
 })()
+
 const stripromise = function stripromise () {
     let resolver
     let rejecter
@@ -17,7 +18,8 @@ const stripromise = function stripromise () {
         rejecter
     }
 }
-(async () => {
+
+;(async () => {
     let promise
     let bipMeAt
     let lastTime = 0
@@ -65,4 +67,5 @@ const stripromise = function stripromise () {
         respondeu = await promise.then(_ => true) 
     }        
 })()
+
 console.log("olhe na bottle")
