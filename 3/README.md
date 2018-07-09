@@ -77,7 +77,7 @@ bottle().bipMeAt("alô")
             resolver,
             rejecter
         }
-    }
+    };
     (async () => {
         let promise
         let bipMeAt
