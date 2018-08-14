@@ -1,5 +1,6 @@
 # ciberlogia
 ![the software craftsman, antropoligia do ciberespaço](livros.jpg)
+
 Os livros se complementam em alguns aspectos, buscam valorizar as atividades
 humanas no ambiente digital, traçar diretrizes e orientações. Enquanto o
 [livro do artesão](https://www.amazon.com/Software-Craftsman-Professionalism-Pragmatism-Robert/dp/0134052501)
@@ -34,7 +35,7 @@ inflando a dívida técnica e gradativamente o projeto torna-se não responsivo.
 Para corrigir estes desvios  é necessário investir em práticas que podem
 penalizar um desenvolvimento acelerado e negligente, como programação em pares,
 revisão de código, testes primeiros e de tudo. São tarefas que talvez os gerentes
-não consigam compreender as vantagem e acabam adianto, ![Uncle Bob](https://www.youtube.com/watch?v=ecIWPzGEbFc)
+não consigam compreender as vantagem e acabam adianto, [Uncle Bob](https://www.youtube.com/watch?v=ecIWPzGEbFc)
 defende que é um dever ético do programador zelar pela qualidade do software que
 produz. O artesão vem resgatar a excelência técnica e a carregar de noções de
 profissionalismo e autorrealização.
