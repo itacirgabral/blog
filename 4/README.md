@@ -40,5 +40,5 @@ defende que é um dever ético do programador zelar pela qualidade do software q
 produz. O artesão vem resgatar a excelência técnica e a carregar de noções de
 profissionalismo e autorrealização.
 
-o ciberespaço é um projeto de inteligência onde podemos construir a realização
+O ciberespaço é um projeto de inteligência onde podemos construir a realização
 de todo nosso potencial.
