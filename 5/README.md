@@ -84,5 +84,6 @@ function* perm (arr, pre = '') {
 
 for (const p of perm(['a', 'b', 'c', 'd'])) {
   console.log(p)
-}```
+}
+```
 
