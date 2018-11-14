@@ -39,13 +39,13 @@ Da árvore acima ainda seria necessário percorrê-la para coletar a ordem dos e
 
 Para não gerar a árvore e já obter os elementos do vetor poderíamos usar o código a segui:
 ```javascript
-
+// função distributiva 'a' * ['b', 'c', 'd'] = ['ab', 'ac', 'ad']
 const arrIDistF = (arr, el) => arr.length > 0 ? arr.map(e => el + e) : [el]
 
 function perm (arr) {
   const output = []
   for (let i = 0; i < arr.length; i++) {
-    const iless =  iLessF(arr, i)
+    const iless =  iLess(arr, i)
     const permiless = perm(iless)
     const arridist = arrIDistF(permiless, arr[i])
     output.push(...arridist)
@@ -60,3 +60,11 @@ function perm (arr) {
 //    ...arrIDist(perm(iLess(lst, i)), b)
 // ), [])
 ```
+
+## Maximum call stack size exceeded
+
+A árvore ocupa espaço em memória proporcional ao fatorial do número de elementos, dependendo quão gordos sejam seus objetos o navegador pode reclamar com `Paused before potencial out-of-memory crach`. A função que retorna um vetor é mais enxuta, não é pausada pela quantidade de memória ocupada, mas pelo tamanho da pilha de chamadas, que é a referência à função anterior que retornará.
+
+Uma técnica para contornar isso é o uso de [trampolins](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3), ao invés da função recursiva chamar a si mesma diretamente, ela cria uma função que chama a si mesma com os parâmetros corretos e a retorna como resultado. Como se retirasse da pilha a chamada da função, evitando seu estouro, e a colocasse num closure.
+
+Este algoritmo de permutação é particularmente complicado de linearizar, a função pode chamar várias vezes a si mesma e ainda compõem o elemento `i` com o resto n - 1 do vetor.
