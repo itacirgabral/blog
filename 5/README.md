@@ -67,4 +67,22 @@ A árvore ocupa espaço em memória proporcional ao fatorial do número de eleme
 
 Uma técnica para contornar isso é o uso de [trampolins](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3), ao invés da função recursiva chamar a si mesma diretamente, ela cria uma função que chama a si mesma com os parâmetros corretos e a retorna como resultado. Como se retirasse da pilha a chamada da função, evitando seu estouro, e a colocasse num closure.
 
-Este algoritmo de permutação é particularmente complicado de linearizar, a função pode chamar várias vezes a si mesma e ainda compõem o elemento `i` com o resto n - 1 do vetor.
+[Geradores](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) podem substituir trampolins, com a vantagem de serem `lazy`, calculam o próximo elemento e podem pausar a execução para que o resto da aplicação utilize este retorno.
+
+```javascript
+function* perm (arr, pre = '') {
+  if (arr.length > 1) {
+    for (let i = 0; i < arr.length; i++) {
+      const arri = arr[i]
+      const iLess = iLessF(arr, i)
+      yield* perm(iLess, pre + arri)
+    }
+  } else {
+    yield [pre + arr[0]]
+  }
+}
+
+for (const p of perm(['a', 'b', 'c', 'd'])) {
+  console.log(p)
+}```
+
