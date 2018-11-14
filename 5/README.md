@@ -65,9 +65,9 @@ function perm (arr) {
 
 A árvore ocupa espaço em memória proporcional ao fatorial do número de elementos, dependendo quão gordos sejam seus objetos o navegador pode reclamar com `Paused before potencial out-of-memory crach`. A função que retorna um vetor é mais enxuta, não é pausada pela quantidade de memória ocupada, mas pelo tamanho da pilha de chamadas, que é a referência à função anterior que retornará.
 
-Uma técnica para contornar isso é o uso de [trampolins](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3), ao invés da função recursiva chamar a si mesma diretamente, ela cria uma lambda que chama a si mesma com os parâmetros corretos. Como se retirasse da pilha a chamada da função, evitando seu estouro, e a colocasse num closure.
+Uma técnica para contornar isso é o uso de [trampolins](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3), ao invés da função recursiva chamar a si mesma diretamente, ela cria uma lambda que chama a si mesma com os parâmetros corretos. Como se retirasse da pilha a chamada da função, evitando seu estouro, e a colocasse num _closure_.
 
-[Geradores](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) podem substituir trampolins, com a vantagem de serem `lazy`, calculam o próximo elemento e podem pausar a execução para que o resto da aplicação utilize este retorno.
+[Geradores](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) podem substituir trampolins, com a vantagem de serem _lazy_, calculam o próximo elemento e podem pausar a execução para que o resto da aplicação utilize este retorno.
 
 ```javascript
 function* perm (arr, pre = '') {
