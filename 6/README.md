@@ -106,12 +106,50 @@ vetores, isto implica que cada um dos objetos terá sua cópia da função. Para
 aliviar o uso da memória podermos colocar esta função num objeto externo e apenas
 a referencia no atributo do vetor. Nesse sentido um objeto externo privilegiado
 seria o protótipo, onde a busca por referência já é feita automaticamente.
-Contudo alterar o protótipo de um objeto que outra parte da aplicação faz uso
-pode impactar silenciosamente na execução do programa.
 ```javascript
 var a1 = [1, 1, 1]
-a1.sum = function() {
+a1.sum = function sum () {
   return this.reduce((a, b) => a + b, 0)
 }
-a1.sum()
+console.log(`a1.sum() = ${a1.sum()}`)
+
+var tools4Arrays = {}
+tools4Arrays.sum = function sum () {
+  return this.reduce((a, b) => a + b, 0)
+}
+var a2 = [2,2,2]
+a2.sum = tools4Arrays.sum
+console.log(`a2.sum() = ${a2.sum()}`)
+
+var a3 = [3, 3, 3]
+Object.getPrototypeOf(a3).sum = function() {
+  return this.reduce((a, b) => a + b, 0)
+}
+console.log(`a3.sum() = ${a3.sum()}`)
+
+console.log(`now everyone has sum() = ${[4, 4, 4].sum()}`)
+```
+Contudo alterar o protótipo de um objeto que outra parte da aplicação faz uso
+pode impactar silenciosamente na execução do programa.
+
+## Mix In
+Um alternativa seria, ao invés de alterar o protótipo diretamente, adicionar um
+elo na cadeia que contenha os atributos necessários e este elo ter seu protótipo
+apontado para o protótipo original, desta forma os atributos do objeto
+intrometido são consultados se não existir este atributo no objeto inicial, por
+sua vez se não for localizado no neste intermediário a busca seque através cadeia
+de prototípica.
+
+![diagrama prototípica](./prototypeDiagram.png)
+
+```javascript
+var mkHelloArray = () => Object.assign(
+  Object.create(
+    Object.assign(
+      Object.create(Object.getPrototypeOf([])),
+      {'hello': 'world'}
+    )
+  ),
+  {'length': 0}
+)
 ```
