@@ -182,4 +182,5 @@ console.error(`just a3 has sum() = ${[4, 4, 4].sum()}`)
 // Object.prototype.toString.call(a3)
 // Object.prototype.toString.call([])
 // Object.prototype.toString === Array.prototype.toString
+// https://stackoverflow.com/questions/35900557/is-there-away-to-change-the-internal-class-property-of-a-javascript-object
 ```
