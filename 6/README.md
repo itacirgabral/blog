@@ -1,9 +1,10 @@
 # Protótipos intermediários
 ## Introdução
 Javascript é uma linguagem com herança prototípica, os atributos não encontrados
-de um objeto são procurados no objeto vinculado como protótipo do primeiro. O
+de um objeto são procurados no objeto vinculado como o protótipo do primeiro. O
 segundo objeto pode ter um terceiro vinculado pelo próprio protótipo e assim
-sucessivamente. É como se fosse uma lista encadeada.
+sucessivamente. É como se fosse uma lista encadeada. O protótipo dos arrays
+possuem os seguintes atributos:
 ```javascript
 // corrente.js
 var a = []
@@ -42,6 +43,7 @@ o protótipo base do `Object` e possui diversos métodos para lidar com seus
 elementos, como `reduce` ou `sort`. Mesmo assim é possível adicionar atributos
 não numéricos a um objeto do tipo array:
 ```javascript
+// tipoVetor1.js
 var a = []
 a.a = a
 a.b = 'b'
@@ -101,12 +103,13 @@ console.log(Object.getOwnPropertyDescriptors([]).length)
 console.log(Object.getOwnPropertyDescriptors(a).length)
 ```
 ## Herança
-Para adicionar o comportamento de soma podemos colocar um método em um destes
-vetores, isto implica que cada um dos objetos terá sua cópia da função. Para
-aliviar o uso da memória podermos colocar esta função num objeto externo e apenas
-a referencia no atributo do vetor. Nesse sentido um objeto externo privilegiado
-seria o protótipo, onde a busca por referência já é feita automaticamente.
+Para adicionar o comportamento de soma podemos colocar o método nos vetores, isto
+implica que cada um dos objetos terá sua cópia da função. Para aliviar o uso da
+memória podermos colocar esta função num objeto externo e apenas a referencia no
+atributo do vetor. Nesse sentido um objeto externo privilegiado seria o protótipo,
+onde a busca por referência já é feita automaticamente.
 ```javascript
+// heranca.js
 var a1 = [1, 1, 1]
 a1.sum = function sum () {
   return this.reduce((a, b) => a + b, 0)
@@ -137,12 +140,13 @@ Um alternativa seria, ao invés de alterar o protótipo diretamente, adicionar u
 elo na cadeia que contenha os atributos necessários e este elo ter seu protótipo
 apontado para o protótipo original, desta forma os atributos do objeto
 intrometido são consultados se não existir este atributo no objeto inicial, por
-sua vez se não for localizado no neste intermediário a busca seque através cadeia
-de prototípica.
+sua vez se não for localizado neste intermediário a busca segue através da cadeia
+prototípica.
 
 ![diagrama prototípica](./prototypeDiagram.png)
 
 ```javascript
+// mixin.js
 var protoOfArray = Object.getPrototypeOf([])
 
 var tools4Arrays = Object.defineProperty(
@@ -154,7 +158,7 @@ var tools4Arrays = Object.defineProperty(
       },
     'writable': false,
     'configurable': false,
-    'enumerable': false
+    'enumerable': true
   }
 )
 
@@ -169,10 +173,16 @@ console.error(`just a3 has sum() = ${[4, 4, 4].sum()}`)
 
 Os atributos originais na cadeia protótipa continuam acessíveis (se não forem
 sobrescritas), como por exemplo `sort`. Tudo se passa como se este objeto fosse
-um array, mas com alguns atributos curto-circuitados na hierarquia das heranças.
+um array com alguns atributos curto-circuitados na hierarquia das heranças.
 
 ## Construtores
+O conceito de construtor está presente desde as primeiras especificações e lembra
+o comportamento de uma Classe, ele define uma função que gera novos objetos e se
+convenciona usar letra inicial maiúscula. A função construtura deve possuir o
+protótipo igual aos objetos que cria e estes devem acessar um atributo
+`constructor` que aponta para esta função.
 ```javascript
+// constructor.js
 var protoOfArray = Object.getPrototypeOf([])
 
 var tools4Arrays = Object.defineProperty(
@@ -181,7 +191,8 @@ var tools4Arrays = Object.defineProperty(
   {
     'value': function sum () {
         return this.reduce((a, b) => a + b, 0)
-      }
+      },
+      'enumerable': true
   }
 )
 tools4Arrays = Object.defineProperty(
@@ -195,8 +206,7 @@ tools4Arrays = Object.defineProperty(
 function ExtArr (n) {
   return Object.setPrototypeOf(new Array(n), tools4Arrays)
 }
-Object.setPrototypeOf(ExtArr, tools4Arrays)
-ExtArr[Symbol.species] = ExtArr
+ExtArr.prototype = tools4Arrays
 
 
 var a3 = ExtArr(3)
@@ -204,8 +214,40 @@ a3[0] = 3
 a3[1] = 3
 a3[2] = 3
 
-console.log(`a3.filter has sum() = ${a3.filter(() => true).sum()}`)
-console.log(`a3.fmap has sum() = ${a3.map(x => x).sum()}`)
+console.log(`Array.isArray(a3) = ${Array.isArray(a3)}`)
+console.log(`a3 instanceof Array = ${a3 instanceof Array}`)
+console.log(`a3 instanceof ExtArr = ${a3 instanceof ExtArr}`)
 ```
-Mas estas funções que retornam um novo
-objeto precisam saber criar estes sub tipos especializados, por enquanto t
+No código acima já obtemos que `a3 instanceof ExtArr` é verdadeira, onde `ExtArr`
+é a função construtora que fabrica novos objetos. De forma análoga `Array` é a
+função construtora de vetores, `Object` é a função construtora de objetos e
+função construtora das funções anteriores é a `Function`, que é função
+construtora de si mesma e uma instância de `Object`.
+
+![prototype diagram with constructor](./prototypeDiagramConstructor.png)
+
+A função `ExtArr` constrói novos vetores estendidos com os atributos contidos em
+`tools4Arrays`. Quando tenta-se acessar `a3.constructor` o atribulo não é
+encontrado no próprio objeto, depois segue pelo protótipo e em `tools4Arrays`
+encontra e o retorna. Ao se buscar `a3.map` o atributo não é encontrado em
+`tools4Arrays` e segue para `Array.prototype`.
+
+Funções como `map` e `filter` geram novos objetos, eles seguem a cadeia protótipa
+procurando por construtores que possuem o atributo especial `Symbol.species` que
+aponta para a função construtora que deve ser usada. Sem configurações adicionais
+o atributo `Array[Symbol.species]`, que aponta para o próprio construtor `Array`,
+e gera um novo vetor sem as os atributos extras de `tools4Arrays`. Para alterar
+isso deve-se adicionar o construtor `ExtArr` o atributo `Symbol.species`
+apontando para o construtor desejado:
+
+![prototype diagram with constructor and species](prototypeDiagramConstructorSpecies.png)
+
+```javascript
+// constructor.js
+// (...)
+
+ExtArr[Symbol.species] = ExtArr
+
+console.log(`a3.filter has sum() = ${a3.filter(() => true).sum()}`)
+console.log(`a3.map has sum() = ${a3.map(x => x).sum()}`)
+```
