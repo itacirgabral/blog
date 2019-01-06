@@ -9,7 +9,7 @@ var tools4Arrays = Object.defineProperty(
       },
     'writable': false,
     'configurable': false,
-    'enumerable': false
+    'enumerable': true
   }
 )
 
