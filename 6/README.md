@@ -168,10 +168,8 @@ console.error(`just a3 has sum() = ${[4, 4, 4].sum()}`)
 ```
 
 Os atributos originais na cadeia protótipa continuam acessíveis (se não forem
-sobrescritas), como por exemplo `sort`. Mas estas funções que retornam um novo
-objeto precisam saber criar estes sub tipos especializados, por enquanto tudo se
-passa como se este objeto fosse um array, mas com alguns atributos
-curto-circuitados na hierarquia das heranças.
+sobrescritas), como por exemplo `sort`. Tudo se passa como se este objeto fosse
+um array, mas com alguns atributos curto-circuitados na hierarquia das heranças.
 
 ## Construtores
 ```javascript
@@ -209,3 +207,5 @@ a3[2] = 3
 console.log(`a3.filter has sum() = ${a3.filter(() => true).sum()}`)
 console.log(`a3.fmap has sum() = ${a3.map(x => x).sum()}`)
 ```
+Mas estas funções que retornam um novo
+objeto precisam saber criar estes sub tipos especializados, por enquanto t
