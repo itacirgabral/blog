@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Extend Array with Statical Average</title>
+    <script type="module">
+        import mkExtArr from './mkExtArr.mjs'
+
+        const SArray = mkExtArr({
+          'isNumeric': function isNumeric () { 
+            return this.every(Number.isFinite)
+          },
+          'sum': function sum () {
+            return this.isNumeric() ? this.reduce((a, b) => a + b, 0) : new TypeError('should be stric numeric')
+          },
+          'average': function average () {
+            return this.isNumeric() ? this.sum() / this.length : new TypeError('should be stric numeric')
+          }
+        })
+
+        window.SArray = SArray
+      </script>
+  </head>
+  <body>
+  </body>
+</html>

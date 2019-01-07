@@ -251,3 +251,83 @@ ExtArr[Symbol.species] = ExtArr
 console.log(`a3.filter has sum() = ${a3.filter(() => true).sum()}`)
 console.log(`a3.map has sum() = ${a3.map(x => x).sum()}`)
 ```
+`Symbol.species` pode apontar para qualquer outra função, neste caso as funções `map` e `filter` vão utilizarão o construtor pela mesma assinatura do `Array`, se for chamada com um argumento numérico n retorna um vetor vazio de comprimento n, se for de outro tipo ou múltiplos argumentos retorna um vetor com estes argumentos. Para atingir isso basta recolher e repassar os argumentos com o operador _spread_, da seguinte forma:
+```javascript
+// mkExtArr.mjs
+/*
+** Array(3) = [ , , ]
+** Array(3, 3, 3) = [3, 3, 3]
+*/
+// (...)
+const ExtArr = function ExtArr (...n) {
+  return Object.setPrototypeOf(new Array(...n), megaPack)
+}
+// (...)
+```
+
+## Empacotando tudo
+Se quisermos incorporar diversas funções no protótipo extra podemos utilizar o `Object.defineProperty` com _reduce_ da seguinte maneira:
+```javascript
+// zipProperty.mjs
+function zipProperty (proto, toolsBag) {
+  return Object.entries(toolsBag).reduce((a, [key, value]) => Object.defineProperty(
+  a,
+  key,
+  { value,'enumerable': true }
+  ), proto)
+}
+```
+Assim refatoramos a função que estende os vetor em javascript com novos atributos para apenas:
+```javascript
+//  mkExtArr.mjs
+function mkExtArr (toolsBag) {
+  const tools4Arrays = Object.defineProperty(
+    zipProperty(Object.getPrototypeOf([]), toolsBag),
+    'constructor',
+    {
+      'value': ExtArr
+    }
+  )
+
+  function ExtArr (...n) {
+    return Object.setPrototypeOf(new Array(...n), tools4Arrays)
+  }
+  ExtArr.prototype = tools4Arrays
+  ExtArr[Symbol.species] = ExtArr
+
+  return ExtArr
+}
+```
+## Conclusão
+Esta técnica é equivalente a _Subclassing Arrays_ e com `Symbol.species` para
+restaurar o funcionamento dos `map`. Veja mais [aqui](https://davidtang.io/2017/09/21/subclassing-arrays-in-es2015.html) e [aqui](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/).
+
+Em outas linguagens há algum conceito de dados que é transversal a toda a sintaxe,
+como listas para lisp ou objetos para scala. Os tipos especializados de objetos
+em javascript, como `Arrays` ou `Set`, possui uma representação interna otimizada,
+que mesmo sendo instâncias de objetos, intimida a busca por uma superfície suave
+de especialização. Ainda por cima as classes vem bagunçar conceitualmente tudo
+ainda mais.
+
+Para incorporar o código pode utilizar algo assim:
+```html
+<script type="module">
+  import mkExtArr from 'https://raw.githubusercontent.com/itacirgabral/blog/master/6/mkExtArr.mjs'
+  const SArray = mkExtArr({
+    'isNumeric': function isNumeric () { 
+      return this.every(Number.isFinite)
+    },
+    'sum': function sum () {
+      return this.isNumeric() ? this.reduce((a, b) => a + b, 0) : new TypeError('should be stric numeric')
+    },
+    'average': function average () {
+      return this.isNumeric() ? this.sum() / this.length : new TypeError('should be stric numeric')
+    }
+  })
+
+  window.SArray = SArray
+
+  console.log(`statisticalArray(1, 2, 3).average() = ${statisticalArray(1, 2, 3).average()}`)
+</script>
+```
+Ou visitar o [github](https://github.com/itacirgabral/blog/tree/master/6/final.js)

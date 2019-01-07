@@ -1,7 +1,7 @@
-import zipProperty from './zipProperty'
+import zipProperty from './zipProperty.mjs'
 
 function mkExtArr (toolsBag) {
-  const megaPack = Object.defineProperty(
+  const tools4Arrays = Object.defineProperty(
     zipProperty(Object.getPrototypeOf([]), toolsBag),
     'constructor',
     {
@@ -9,10 +9,10 @@ function mkExtArr (toolsBag) {
     }
   )
   
-  const ExtArr = function ExtArr (...n) {
-    return Object.setPrototypeOf(new Array(...n), megaPack)
+  function ExtArr (...n) {
+    return Object.setPrototypeOf(new Array(...n), tools4Arrays)
   }
-  ExtArr.prototype = megaPack
+  ExtArr.prototype = tools4Arrays
   ExtArr[Symbol.species] = ExtArr
 
   return ExtArr
