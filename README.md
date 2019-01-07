@@ -4,3 +4,4 @@
 * [Náufrago](3)
 * [Ciberlogia](4)
 * [Geradores & Permutação](5)
+* [Sub Classes sem classes](6)
