@@ -6,3 +6,4 @@
 * [Geradores & Permutação](5)
 * [Sub Classes sem classes](6)
 * [Revelação estereogrâmica](7)
+* [Gastando Objetos](8)
