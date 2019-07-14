@@ -2,7 +2,7 @@
 ## Demasiado humano
 Orientação a objetos é um paradigma mentalmente confortável, você modela o mundo de forma análoga a como já está acostumado a manusear itens rotineiros. Reúne elementos semelhantes em conjuntos distribuídos para facilitar o acesso, talvez estrategicamente perto deles você deixe mecanismos que façam operações relacionados a eles.
 
-É algo intuitivo. Na programação você pode até ser levado a pensar que é a forma final de sofisticação e refinamento, que o desenvolvimento tende a este paradigma conforme vai amadurecendo. Este raciocínio é ingênuo, primeiro porque é um efeito de projeção onde identificamos o que já conhecemos. Não é que tudo leva a orientação a objeto, mas nós tentamos entender o desconhecido primeiro a partir das nossas próprias referências e modos de pensar.
+É algo intuitivo, você pode até ser levado a pensar que é a forma final de sofisticação e refinamento, que o desenvolvimento tende a este paradigma conforme vai amadurecendo. Este raciocínio é ingênuo, primeiro porque é um efeito de projeção onde identificamos o que já conhecemos. Não é que tudo leva a orientação a objeto, mas nós tentamos entender o desconhecido primeiro a partir das nossas próprias referências e modos de pensar.
 
 Segundo porque um paradigma que funciona convenientemente bem com nossos modelos mentais tendem a funcionar mal onde nossos modelos mentais também funcionam mal. Fizemos a orientação a objetos nossa imagem semelhança para nos servir e ele possui nossos próprios defeitos e limitações.
 
