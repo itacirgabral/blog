@@ -38,6 +38,6 @@ Box( Math.random() )
   .fold()
 ```
 
-O valor do  parâmetro não fica salvo em nenhuma variável, estão no _closure_ gerado pela chamada da  função `Box`. Assim você não espalha seus dados por ai, eles estão isolados do ambiente seguro e apenas inserindo funções pelo orifício correto você consegue manipular eles.
+O valor do  parâmetro não fica salvo em nenhuma variável, estão no _closure_ gerado pela chamada da  função `Box`. Assim você não espalha seus dados por ai, eles estão seguros isolados do ambiente e apenas inserindo funções pelo orifício correto você consegue manipular eles.
 
 ![box](box.jpg)
